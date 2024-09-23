@@ -3,6 +3,12 @@
     "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "orientation": "default",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "icon": "./assets/images/icon.png",
     "web": {
       "output": "static",
       "bundler": "metro"
@@ -13,7 +19,8 @@
         {
           "origin": "https://n"
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "name": "nillo",
     "slug": "nillo"
