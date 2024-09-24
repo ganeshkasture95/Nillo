@@ -1,9 +1,11 @@
 import { Colors } from "constants/Colors";
+import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ModalType } from "types/enums";
+
 
 export default function Page() {
 
@@ -11,7 +13,9 @@ export default function Page() {
   const showModal = async (type: ModalType) => {
 
 
-
+  }
+  const openLink=()=>{
+    WebBrowser.openBrowserAsync("https://ganeshkasture.vercel.app")
   }
   return (
     <View style={[styles.container,
@@ -35,11 +39,11 @@ export default function Page() {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.description}>
-        By signing up, you agree to the {" "} <Text style={styles.link}>User Notice</Text> and <Text style={[styles.link]}>Privacy Policy</Text>
+      <Text style={styles.description} >
+        By signing up, you agree to the <Text style={styles.link} onPress={openLink}>User Notice</Text> and <Text style={[styles.link]} onPress={openLink}>Privacy Policy</Text>
       </Text>
 
-      <Text style={styles.link}>Can't Log in please signup </Text>
+      <Text style={styles.link} onPress={openLink}>Can't Log in please Signup</Text>
     </View>
   );
 }
