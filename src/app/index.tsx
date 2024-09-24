@@ -17,7 +17,7 @@ export default function Page() {
   const { top } = useSafeAreaInsets()
   const { showActionSheetWithOptions } = useActionSheet()
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const snapPoints = useMemo(() => ['33%','90%'], []);
+  const snapPoints = useMemo(() => ['33%', '90%'], []);
 
   const [authType, setAuthType] = useState<ModalType | null>(null)
 
@@ -29,9 +29,10 @@ export default function Page() {
       bottomSheetModalRef.current?.present();
   }
 
+// this action sheet is another example bttom 
+// sheet it is easy but seams a little hard at first 
 
-
-  const openSctionSheet = async () => {
+  const openActionSheet = async () => {
     const option = ['View support docs', 'Contct us', 'Cancel'];
     const cancelButtonIndex = 2;
 
@@ -79,22 +80,20 @@ export default function Page() {
           By signing up, you agree to the <Text style={styles.link} onPress={openLink}>User Notice</Text> and <Text style={[styles.link]} onPress={openLink}>Privacy Policy</Text>
         </Text>
 
-        <Text style={styles.link} onPress={openSctionSheet}>Can't Log in please Signup?</Text>
+        <Text style={styles.link} onPress={openActionSheet}>Can't Log in please Signup?</Text>
       </View>
 
 
-{/* this is the bottom sheet in the app using gorhomes bottom sheet  */}
+      {/* this is the bottom sheet in the app using gorhomes bottom sheet  */}
       <BottomSheetModal
         ref={bottomSheetModalRef}
         index={0}
         snapPoints={snapPoints}
       >
         <View>
-         <AuthModel  authType= {authType}/>
+          <AuthModel authType={authType} />
         </View>
-
       </BottomSheetModal>
-
     </BottomSheetModalProvider>
   );
 }
